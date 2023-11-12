@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		// 첫째 줄에는 현재 시각이 나온다.
+		// 현재 시각은 시 A (0 ≤ A ≤ 23) 와 분 B (0 ≤ B ≤ 59)가 정수로 빈칸을 사이에 두고 순서대로 주어진다.
+		// 두 번째 줄에는 요리하는 데 필요한 시간 C (0 ≤ C ≤ 1,000)가 분 단위로 주어진다.
+
+		// 첫째 줄에 종료되는 시각의 시와 분을 공백을 사이에 두고 출력한다.
+
+		Scanner sc = new Scanner(System.in);
+		int nowH = sc.nextInt();
+		int nowM = sc.nextInt();
+		int needTime = sc.nextInt();
+
+		int resultH;
+		int resultM;
+
+		if ((nowM + needTime) < 60) { // nowM + meedTime이 60 미만일 경우
+			resultH = nowH;
+			resultM = nowM + needTime;
+			System.out.println(resultH + " " + resultM);
+		} else { // nowM + meedTime이 60 초과일 경우
+			resultH = nowH + 1;
+			resultM = (nowM + needTime) - 60; // 더한 값에서 60 차감. 1. 결과가 60일 경우.
+			if (resultM == 60) {
+				resultM = 0;
+				resultH = resultH + 1;
+				System.out.println(resultH + " " + resultM);
+			}else {
+				resultH = resultH + 1;
+				if(resultH >= 24) {
+					resultH = resultH - 25;
+				}
+				System.out.println(resultH + " " + resultM);
+			}
+			sc.close();
+
+		}
+	}
+}
