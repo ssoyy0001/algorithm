@@ -20,7 +20,11 @@ public class Main {
 			resultH = H;
 			resultM = M-45;
 			System.out.println(resultH + " " + resultM);
-		}else {
+		}else if(M == 45){
+			resultH = H;
+			resultM = 0;
+			System.out.println(resultH + " " + resultM);
+		}else{
 			resultH = H-1;
 			resultM = 60 + (M-45);
 			
