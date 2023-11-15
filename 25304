@@ -14,25 +14,22 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int X = sc.nextInt();
-		int N = sc.nextInt();
-		int price[] = null;
-		int count[] = null;
-		int result = 0;
+		int X = sc.nextInt();		//영수증의 총액
+		int N = sc.nextInt();		//영수증의 물품개수
+		int a;
+		int b;
+		int result = 0;				//입력받은 가격의 총합 (영수증 총액과 비교할 금액)
 		
 		for(int i=0; i<N; i++) {
-			price[i] = sc.nextInt();
-			count[i] = sc.nextInt();
-		}
-		
-		for(int i=0; i<N; i++) {
-			result += price[i];
+			a = sc.nextInt();
+			b = sc.nextInt();
+			result += a * b;
 		}
 		
 		if(X==result) {
-			System.out.println("YES");
+			System.out.println("Yes");
 		}else {
-			System.out.println("NO");
+			System.out.println("No");
 		}
 		
 		sc.close();
