@@ -1,0 +1,23 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		//int 앞에 long을 하나씩 더 붙일 때마다 4바이트씩 저장할 수 있는 공간이 늘어나는 걸까?
+		//혜아가 N바이트 정수까지 저장할 수 있다고 생각해서 칠판에 쓴 정수 자료형의 이름은 무엇일까?
+		
+		//첫 번째 줄에는 문제의 정수 N이 주어진다.
+		//혜아가 N바이트 정수까지 저장할 수 있다고 생각하는 정수 자료형의 이름을 출력하여라.
+		//(입력)4 (출력)long int
+		//(입력)8 (출력)long long int
+		
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		for(int i=0; i<N/4; i++) {
+			System.out.print("long ");
+		}
+		System.out.print("int");
+		sc.close();
+	}
+}
