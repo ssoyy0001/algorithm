@@ -1,0 +1,47 @@
+package algorithm;
+
+import java.io.BufferedReader;			//reader: 스캐너 대용
+import java.io.BufferedWriter;			//writer: System.print.out 대용
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+import java.io.IOException;				//readLine 시 필요한 예외처리
+
+public class Main {
+	public static void main(String args[]) throws IOException{
+		//본격적으로 for문 문제를 풀기 전에 주의해야 할 점이 있다.
+		//입출력 방식이 느리면 여러 줄을 입력받거나 출력할 때 시간초과가 날 수 있다는 점이다.
+		//Java를 사용하고 있다면, 
+		//Scanner와 System.out.println 대신 "BufferedReader"와 "BufferedWriter"를 사용할 수 있다. 
+		//BufferedWriter.flush는 맨 마지막에 한 번만 하면 된다.
+		
+		
+		//입력받기
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));	//reader 선언
+		String T = bf.readLine();			//readLine의 데이터형은 String으로 고정됨,라인단위로만 읽어짐
+		int t = Integer.parseInt(T);
+		
+		int result[] = new int[t];
+		
+		for(int i=0; i<t; i++) {
+			String AB = bf.readLine();
+			StringTokenizer st = new StringTokenizer(AB);
+			int A = Integer.parseInt(st.nextToken());	//공백 기준 첫 번째 데이터
+			int B = Integer.parseInt(st.nextToken());
+			result[i] = A+B;
+		}
+		
+		
+		//출력하기
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));	//writer 선언
+		
+		for(int i=0; i<t; i++) {
+			bw.write(result[i] + "\n");
+			
+		}
+
+		bw.flush();
+		bw.close();		
+		
+	}
+}
