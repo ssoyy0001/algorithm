@@ -16,44 +16,30 @@ public class Main {
 	//출력은 2줄이다. 1번째 줄엔 제출하지 않은 학생의 출석번호 중 가장 작은 것을, 2번째 줄에선 그 다음 출석번호를 출력한다.
 		
 	//로직::
-	//int p1, p2 선언해두기
-	//크기가 30인 배열 mission[]을 만들고, 각 index번호와 동일한 값을 대입 -> 전체 출석부로 가정
-	//크기가 28인 배열 input[]을 만들고, 스캐너로 입력받은 값들을 대입 -> 과제제출 명부로 가정
-	//mission[] 배열을 순회하면서 input[]배열의 값과 비교한 후, 일치하는 값이 없는 경우 p1에 저장
-	//p1에 값이 있다면 p2에 저장
-	//p1과 p2를 비교한 후, 작은 값은 p1/큰 값은 p2에 저장
+	//31개짜리 배열 people[]만들기
+	//for문을 28번 돌면서 스캐너로 입력받은 숫자값이 '인덱스'라고 가정, people[인덱스]에 값 넣기
+	//배열의 값이 0인 index 찾기
 	
+	List<Integer> result = new ArrayList<>();		//제출하지 않은 번호가 들어갈 리스트
 	Scanner sc = new Scanner(System.in);
-	List<Integer> result = new ArrayList<>();
-	
-	int[] mission = new int[30];			//전체출석부
-	for(int i=0; i<mission.length; i++) {
-		mission[i] = i+1;
+	int[] people = new int[31];
+	people[0] = -1;									//아래에서 people[i] = 0 의 조건에 안걸리도록
+	for(int i=0; i<28; i++) {
+		int x = sc.nextInt();
+		people[x] = x;
 	}
-	int[] input = new int[28];				//과제제출 명부
-	for(int i=0; i<input.length; i++) {
-		input[i] = sc.nextInt();
-	}
-	
-	for(int i=0; i<mission.length; i++) {
-		for(int j=0; j<input.length; j++) {
-			if(mission[i] == input[j]) {
-				mission[i] = 0;
-			}
+	for(int i=0; i<people.length; i++) {
+		if(people[i]==0) {
+			result.add(i);
 		}
 	}
 	
-	for(int i=0; i<input.length; i++) {
-		if(mission[i] != 0) {
-			result.add(mission[i]);
-		}
-	}
-
 	if(result.get(0) < result.get(1)) {
 		System.out.println(result.get(0) + "\n" + result.get(1));
 	}else {
 		System.out.println(result.get(1) + "\n" + result.get(0));
 	}
+	
 	
 	sc.close();
 	}
