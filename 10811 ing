@@ -11,19 +11,35 @@ public class Main {
 	//입력받은 i를 초기식으로, j까지 반복하여 인덱스값 거꾸로 만들기
 		
 	Scanner sc = new Scanner(System.in);
-	int i, j = 0;
+//	int i, j = 0;
+	int tempI, tempJ = 0;
 	
 	int M = sc.nextInt();
 	int[] bascket = new int[M+1];
-	for(int x=0; x<bascket.length; x++) {
+	for(int x=0; x<bascket.length; x++) {		//0~M번 바구니에 데이터 채우기
 		bascket[x] = x;
 	}
 	
 	int N = sc.nextInt();
-	for(int x=0; x<N; x++) {
-		i = sc.nextInt();
-		j = sc.nextInt();
+	for(int x=0; x<N; x++) {		//N세트를 역순으로 만들 것
+		int i = sc.nextInt();
+		int j = sc.nextInt();
+		tempJ = j;
 		
+		for(int n=i; n<j; n++) {
+			if(n==i) {
+				bascket[i] = bascket[j];
+			}else{
+				bascket[n] = bascket[tempJ-1];
+				tempJ--;
+			} 
+		}
+		bascket[j] = bascket[i];
+	}
+	
+	
+	for(int num=1; num<bascket.length; num++) {		
+		System.out.print(bascket[num] + " ");		//출력문
 	}
 	
 	sc.close();
