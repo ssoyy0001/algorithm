@@ -11,29 +11,29 @@ public class Main {
 		
 	Scanner sc = new Scanner(System.in);
 	int[] nums = new int[10];
-	int cnt = 0;
-	boolean check;
+	boolean check = false;					//boolean데이터의 디폴트값은 false
+	int count=0;
 	
 	for(int i=0; i<nums.length; i++) {
 		nums[i] = sc.nextInt() % 42;
 	}
 	
+	//여기까지 왔을 때 10개의 값들이 저장돼있는 상태
+	//nums배열에서 [0]의 값이 [1]의 값과 같은지 체크하기
+	
 	for(int i=0; i<nums.length; i++) {
 		check = false;
 		for(int j=i+1; j<nums.length; j++) {
-			if(nums[i]==nums[j]) {
+			if(nums[i] == nums[j]) {
 				check = true;
 				break;
 			}
 		}
-		if(check == false) {
-			cnt++;
+		if(check==false) {
+			count++;
 		}
 	}
-	
-	System.out.println(cnt);
-	sc.close();
-	
 		
+	System.out.println(count);
 	}
 }
