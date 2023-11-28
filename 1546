@@ -48,7 +48,7 @@ public class Main {
 	}
 	
 	
-	double result = sum/scorez.length * 100.0 / 100.0;
+	double result = sum/scorez.length;
 	System.out.println(result);
 	
 	sc.close();
