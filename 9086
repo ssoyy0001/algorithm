@@ -1,0 +1,32 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+	
+	//문자열을 입력으로 주면 문자열의 첫 글자와 마지막 글자를 출력하는 프로그램을 작성하시오.
+	//(입력)
+	//입력의 첫 줄에는 테스트 케이스의 개수 T(1 ≤ T ≤ 10)가 주어진다. 
+	//각 테스트 케이스는 한 줄에 하나의 문자열이 주어진다.
+	//(출력)
+	//각 테스트 케이스에 대해서 주어진 문자열의 첫 글자와 마지막 글자를 연속하여 출력한다.
+		
+	Scanner sc = new Scanner(System.in);
+	
+	int num = sc.nextInt();
+	String[] stringz = new String[num];
+	
+	for (int i=0; i<stringz.length; i++) {
+		stringz[i] = sc.next();
+	}
+	
+	for(int i=0; i<stringz.length; i++) {
+		char first = stringz[i].charAt(0);
+		char end = stringz[i].charAt(stringz[i].length()-1);
+		System.out.println(first + "" + end);
+	}
+
+	sc.close();
+	}
+}
