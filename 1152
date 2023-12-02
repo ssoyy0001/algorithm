@@ -19,10 +19,19 @@ public class Main {
 	Scanner sc = new Scanner(System.in);
 	String sentence = sc.nextLine().trim();
 	
-	String[] result = sentence.split(" ");
-	System.out.println(result.length);
+	if(sentence == "") {
+		System.out.println("0");
+	}else {
+		System.out.println(sentence.split(" ").length);
+	}
 	
 	sc.close();
-		
+	
+	
+	//trim()을 사용해서 앞뒤 공백을 모두 제거했기 때문에 됐다고 생각할 수도 있지만,
+	//입력값이 " "일 경우에는, trim을 하고 나면 ""이 반환된다. 근데 ""을 카운트하면 1이 됨.
+	//이 부분에 대한 처리가 별도로 필요했던 것!
+	
+	
 	}
 }
