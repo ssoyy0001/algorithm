@@ -1,0 +1,35 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+
+		//Do It! 알고리즘 코딩테스트
+		//평균 구하기 - 1546번
+			
+		//
+		//시험 본 N과목의 점수 입력받기
+		//N과목 중 최댓값을 골라 int M으로 변수 선언
+		//N과목의 모든 값을 점수/M*100으로 수정
+		//수정된 점수로 평균 계산
+	
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();					//과목 갯수
+		int A[] = new int[N];					//과목별 점수를 저장할 배열
+		for(int i=0; i<N; i++) {				
+			A[i] = sc.nextInt();				//과목점수 입력받기
+		}
+		long sum = 0;							//과목별 점수의 합
+		long max = 0;							//최댓값
+		
+		for(int i=0; i<N; i++) {
+			if(A[i] > max) max=A[i];			//입력받은 과목 중 최댓값 저장
+			sum = sum + A[i];					//원래 과목의 합
+		}
+		
+		System.out.println(sum*100.0/max/N);
+		
+		sc.close();
+	}
+}
