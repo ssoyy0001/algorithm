@@ -1,0 +1,30 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+
+	//Do It! 알고리즘 코딩테스트
+	//N개의 숫자가 공백 없이 써있다. 이 숫자를 모두 합해 출력하는 프로그램을 작성하시오.
+		
+	//tocharArray()
+	//아스키코드에서 String 숫자와 int 숫자 간 차이는 48
+	
+	Scanner sc = new Scanner(System.in);
+	int sum = 0;
+	int N = sc.nextInt();
+	String sNum = sc.next();
+	char[] cNum = sNum.toCharArray();
+	
+	for(int i=0; i<N; i++) {
+		sum += cNum[i] - '0';
+//		sum += nums[i] - 48;
+	}
+	
+	System.out.println(sum);
+	
+	sc.close();
+	
+	}
+}
