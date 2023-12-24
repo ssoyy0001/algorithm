@@ -1,0 +1,32 @@
+package algorithm;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String args[]) throws IOException {
+
+		//Do It! 알고리즘 코딩테스트
+			
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer stringTokenizer = new StringTokenizer(br.readLine());		//sc.next()와 같은 기능인듯?
+		int suNo = Integer.parseInt(stringTokenizer.nextToken());
+		int quizNo = Integer.parseInt(stringTokenizer.nextToken());
+		
+		//합배열 선언
+		long[] S = new long[suNo + 1];		//인덱스를 0번째가 아닌 1번째부터 활용하기 위해서
+		stringTokenizer = new StringTokenizer(br.readLine());
+		for(int i=1; i<=suNo; i++) {			//0번째 인덱스는 신경쓰지 않으려고 1부터 시작
+			S[i] = S[i-1] + Integer.parseInt(stringTokenizer.nextToken());			//합배열 완성
+		}
+		
+		for(int q=0; q<quizNo; q++) {
+			stringTokenizer = new StringTokenizer(br.readLine());
+			int i = Integer.parseInt(stringTokenizer.nextToken());
+			int j = Integer.parseInt(stringTokenizer.nextToken());
+			System.out.println(S[j] - S[i-1]);
+		}
+	}
+}
