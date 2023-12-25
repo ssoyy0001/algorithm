@@ -1,0 +1,42 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+
+		//Do It! 알고리즘 코딩테스트
+		//주몽의 명령 - 1940번
+		
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();		//재료의 개수
+		int M = sc.nextInt();		//갑옷을 만드는 데 필요한 수
+		int[] j = new int[N];
+		for(int i=0; i<j.length; i++) {		//재료 번호 입력받음
+			j[i] = sc.nextInt();
+		}
+		
+		int sum;
+		int count = 0;
+		
+		//이중for문 사용해서, startNum은 배열의 첫 번째 인덱스고
+		//쭉 돌면서 sum이 합인 걸 찾아. 있으면? 그 값을 0으로 초기화하고 count++;
+		
+		for(int start = 0; start < j.length; start++) {
+			for(int end = start+1; end <j.length; end++) {
+				sum = j[start] + j[end];
+				if(sum == M) {
+					count++;
+					j[start] = 0;
+					j[end] = 0;
+					break;
+				}
+			}
+		}
+		
+		System.out.println(count);
+		
+		
+		sc.close();
+	}
+}
