@@ -1,0 +1,44 @@
+package algorithm;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String args[]) throws NumberFormatException, IOException {
+
+		//Do It! 알고리즘 코딩테스트
+		//주몽의 명령 - 1940번
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());	//재료 갯수
+		int M = Integer.parseInt(br.readLine());	//갑옷을 위한 수
+		int[] A = new int[N];
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		for(int i=0; i<N; i++) {
+			A[i] = Integer.parseInt(st.nextToken());
+		}
+		Arrays.sort(A); 	//A배열 오름차순 정렬
+		int count = 0;
+		//투포인터를 각각 i, j로 설정 - 배열 양 끝에 지정하므로 0과 N-1
+		int i = 0;		//A[0] : Min
+		int j = N-1;	//A[N-1] : Max
+		
+		while(i<j) {	//i와 j가 겹쳐지는 순간 모든 재료를 훑은 게 되므로 반복문 중단
+			if(A[i] + A[j] < M) {
+				i++;
+			}else if(A[i] + A[j] > M) {
+				j--;
+			}else {
+				count++;
+				i++;
+				j--;
+			}
+		}
+		
+		System.out.println(count);
+		
+	}
+}
